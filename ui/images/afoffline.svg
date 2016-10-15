@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" data-name="Layer 1" viewBox="0 -0.0244557 1317.64 971.109" width="100%" height="100%"   preserveAspectRatio="xMidYMid meet"><defs id="svgEditorDefs"><symbol id="1f56f" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="64" height="64" style="stroke:none;fill:none;"/><g xmlns="http://www.w3.org/2000/svg"><ellipse cx="32" cy="55.13" fill="#a29b95" rx="17.886" ry="6.866"/><ellipse cx="32" cy="53.55" fill="#dddad5" rx="16.498" ry="5.285"/><ellipse cx="32" cy="51.22" fill="#a29b95" rx="10.5" ry="4.221"/><ellipse cx="32" cy="50.604" fill="#dddad5" rx="9.848" ry="3.01"/><ellipse cx="32" cy="42.534" fill="#a29b95" rx="10.5" ry="8.628"/><ellipse cx="32" cy="40.833" fill="#dddad5" rx="8.923" ry="6.927"/><ellipse cx="32" cy="36.27" fill="#a29b95" rx="11.454" ry="4.42"/><ellipse cx="32" cy="35.38" fill="#dddad5" rx="10.164" ry="3.479"/><ellipse cx="32" cy="29.431" fill="#a29b95" rx="21" ry="6.866"/><ellipse cx="32" cy="27.85" fill="#dddad5" rx="19.37" ry="5.285"/><g fill="#dfcea3"><ellipse cx="32" cy="26.689" rx="12.409" ry="3.474"/><path d="m19.591 12.139h24.818v14.55h-24.818z"/></g><ellipse cx="32" cy="12.139" fill="#fff6d7" rx="12.409" ry="3.474"/><ellipse cx="32" cy="12.936" fill="#efd8b1" rx="9.418" ry="2.637"/><path d="m31.536 12.498c-2 0-3.872-1-1.735-4.792 2.136-3.79 2.819-4.632 2.819-5.708-.001 0 6.357 10.5-1.084 10.5" fill="#ed4c5c"/><path d="m32.06 10.814c.16.62.226 1.254.367 1.875.077.328.095.618-.039.939-.054.143-.212.553-.421.52-.16-.024-.333-.527-.371-.643-.115-.372-.005-.661.045-1.024.031-.211.197-1.704.419-1.667" fill="#8f9496"/><path d="m31.702 12.482c-1.277 0-2.476-.642-1.107-3.065 1.365-2.422 1.803-2.961 1.803-3.651-.001 0 4.062 6.716-.696 6.716" fill="#ffce31"/><path d="m31.642 12.482c0 0 .144-1.697.358-1.697.257 0 .38 1.643.38 1.643s-.344.054-.738.054" fill="#3e4347"/></g></symbol><linearGradient gradientUnits="objectBoundingBox" id="lgrd2-peachpuff-sienna-h" spreadMethod="pad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" style="stop-color:peachpuff;  stop-opacity:1;"/><stop offset="100%" style="stop-color:sienna;  stop-opacity:1"/></linearGradient><linearGradient id="lgrd3-fr-h"><stop offset="0%" stop-color="blue"/><stop offset="50%" stop-color="black" stop-opacity="0"/><stop offset="100%" stop-color="red"/></linearGradient><polygon id="svgEditorShapeDefs" fill="khaki" stroke="black" style="vector-effect: non-scaling-stroke; stroke-width: 1px;"/><symbol id="1f4f5" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="64" height="64" style="stroke:none;fill:none;"/><g xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" fill="#ed4c5c" r="30"/><circle cx="32" cy="32" fill="#333" r="24"/><path d="m37.767 14.996h-11.533c-2.123 0-3.844 1.691-3.844 3.778v26.449c0 2.088 1.721 3.779 3.844 3.779h11.532c2.124 0 3.845-1.691 3.845-3.779v-26.449c0-2.086-1.72-3.778-3.844-3.778m-7.647 1.379h3.761c.266 0 .48.212.48.473s-.215.472-.48.472h-3.761c-.266 0-.481-.211-.481-.472s.215-.473.481-.473m1.88 30.727c-.637 0-1.152-.509-1.152-1.135 0-.625.516-1.133 1.152-1.133.639 0 1.154.508 1.154 1.133 0 .626-.515 1.135-1.154 1.135m7.689-4.145h-15.376v-24.18h15.377v24.18" fill="#fff"/><path d="m2.816 29h58.37v5.999h-58.37z" fill="#ed4c5c" transform="matrix(-.7071-.7071.7071-.7071 32 77.25)"/></g></symbol></defs><rect id="svgEditorBackground" x="0" y="0" width="1317.6400146484375" height="971.0599975585938" style="fill: none; stroke: none;"/>
+    <defs>
+        <style>
+            .acloCls-1 {
+                fill: #4aa8dd;
+            }
+
+            .acloCls-2 {
+                fill: #e2e2e2;
+            }
+
+            .acloCls-3,
+            .acloCls-8 {
+                fill: #445772;
+            }
+
+            .acloCls-4 {
+                fill: #b2b2b2;
+            }
+
+            .acloCls-5,
+            .acloCls-6 {
+                fill: #fff;
+            }
+
+            .acloCls-6,
+            .acloCls-8 {
+                font-size: 40px;
+                font-family: HelvNeue Roman for IBM;
+                weight: 600;
+                letter-spacing: 2px;
+            }
+        </style>
+    </defs>
+    <title>ac lo</title>
+    <rect class="acloCls-1" x="7.240954384874158" y="12.13923456905448" width="1296.16" height="951.7" rx="33.69" ry="33.69"/>
+    <g id="fan">
+        <circle class="acloCls-2" cx="659.43" cy="443.49" r="308.98"/>
+        <circle class="acloCls-3" cx="659.43" cy="443.49" r="275.54"/>
+        <circle class="acloCls-2" cx="659.43" cy="443.49" r="256.82"/>
+        
+        
+        
+        
+    </g>
+    
+    <rect class="acloCls-3" x="467.534" y="841.006" width="337.832" height="60.6967" rx="26.76" ry="26.76" transform="matrix(1 0 0 1 19.1756 -58.8966)" style="" id="e663_rect" fill="lime"/>
+    <text class="acloCls-6" transform="matrix(1 0 0 1 581.176 825.103)" x="" y="">OffLine</text>
+    
+<path d="M4.35,0l-3.725,-3.725c-0.6250000000000002,-0.6250000000000004,-1.875,0.625,-1.2500000000000002,1.25l2.5,2.5l-2.5,2.5c-0.6249999999999999,0.625,0.6250000000000002,1.8750000000000004,1.2500000000000002,1.25l3.725,-3.725ZM0.6250000000000002,0l-3.7250000000000005,-3.725c-0.625,-0.6250000000000004,-1.8749999999999996,0.625,-1.2499999999999996,1.25l2.5,2.5l-2.5,2.5c-0.625,0.625,0.625,1.8750000000000004,1.25,1.25l3.725,-3.725Z" stroke="black" id="e878_shape" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" fill="khaki" transform="matrix(0.154412 0 0 0.154412 82.8793 355.326)"/><g transform="matrix(2.82253 0 0 2.82253 475.096 255.237)" stroke="black" id="e301_shape" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" fill="khaki"><path d="M80 112c0 8.837-7.163 16-16 16s-16-7.163-16-16c0-8.837 7.163-16 16-16s16 7.163 16 16z"/><path d="M91.424 72.614c-7.776-5.424-17.225-8.614-27.424-8.614s-19.648 3.19-27.424 8.614l9.141 13.129c5.184-3.616 11.483-5.743 18.283-5.743s13.099 2.127 18.283 5.743l9.141-13.129z"/><path d="M109.714 46.347c-12.958-9.040-28.715-14.347-45.714-14.347s-32.755 5.307-45.714 14.347l9.148 13.139c10.367-7.231 22.966-11.485 36.565-11.485s26.198 4.254 36.565 11.486l9.149-13.139z"/><path d="M0 20.084l9.146 13.135c15.549-10.85 34.456-17.22 54.854-17.22s39.305 6.37 54.854 17.22l9.146-13.135c-18.142-12.656-40.203-20.084-64-20.084s-45.858 7.428-64 20.084z"/></g><path d="M162.70796724659817,-21.332630822586946c-3.201999999999998,-2.8130000000000006,-8.105999999999995,-2.455,-11.119,0.5579999999999998l-34.179,34.205l-34.337,-34.362c-3.093,-3.0920000000000005,-8.108,-3.0920000000000005,-11.201,0l-0.11299999999999956,0.11299999999999956c-3.093,3.093,-3.093,8.107,0,11.201l34.341,34.366l-34.34,34.366c-3.093,3.0930000000000035,-3.093,8.108000000000004,0,11.201000000000008l0.11299999999999956,0.11299999999999956c3.093,3.0930000000000035,8.107,3.0930000000000035,11.201,0l34.337,-34.363l34.17900000000001,34.205c3.0130000000000052,3.0130000000000052,7.917000000000002,3.3700000000000045,11.119,0.5580000000000069c3.507000000000005,-3.081000000000003,3.6370000000000005,-8.429000000000002,0.38800000000000534,-11.677999999999997l-34.37899999999999,-34.403l34.37700000000001,-34.404c3.25,-3.2489999999999988,3.1200000000000045,-8.596,-0.38800000000000534,-11.677Z" stroke="black" id="e327_shape" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" fill="red" transform="matrix(2.89629 0 0 2.89629 311.147 323.451)"/><text dy="-0.5em" fill="black" id="e390_texte" style="font-family: Arial; font-size: 20px;"><textPath id="e389_textPath" xlink:href="#e327_shape">T</textPath></text></svg>

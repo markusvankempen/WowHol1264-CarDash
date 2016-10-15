@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" data-name="Layer 1" viewBox="0 0 1317.64 971.06" width="100%" height="100%" ><defs id="svgEditorDefs"><symbol id="1f56f" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="64" height="64" style="stroke:none;fill:none;"/><g xmlns="http://www.w3.org/2000/svg"><ellipse cx="32" cy="55.13" fill="#a29b95" rx="17.886" ry="6.866"/><ellipse cx="32" cy="53.55" fill="#dddad5" rx="16.498" ry="5.285"/><ellipse cx="32" cy="51.22" fill="#a29b95" rx="10.5" ry="4.221"/><ellipse cx="32" cy="50.604" fill="#dddad5" rx="9.848" ry="3.01"/><ellipse cx="32" cy="42.534" fill="#a29b95" rx="10.5" ry="8.628"/><ellipse cx="32" cy="40.833" fill="#dddad5" rx="8.923" ry="6.927"/><ellipse cx="32" cy="36.27" fill="#a29b95" rx="11.454" ry="4.42"/><ellipse cx="32" cy="35.38" fill="#dddad5" rx="10.164" ry="3.479"/><ellipse cx="32" cy="29.431" fill="#a29b95" rx="21" ry="6.866"/><ellipse cx="32" cy="27.85" fill="#dddad5" rx="19.37" ry="5.285"/><g fill="#dfcea3"><ellipse cx="32" cy="26.689" rx="12.409" ry="3.474"/><path d="m19.591 12.139h24.818v14.55h-24.818z"/></g><ellipse cx="32" cy="12.139" fill="#fff6d7" rx="12.409" ry="3.474"/><ellipse cx="32" cy="12.936" fill="#efd8b1" rx="9.418" ry="2.637"/><path d="m31.536 12.498c-2 0-3.872-1-1.735-4.792 2.136-3.79 2.819-4.632 2.819-5.708-.001 0 6.357 10.5-1.084 10.5" fill="#ed4c5c"/><path d="m32.06 10.814c.16.62.226 1.254.367 1.875.077.328.095.618-.039.939-.054.143-.212.553-.421.52-.16-.024-.333-.527-.371-.643-.115-.372-.005-.661.045-1.024.031-.211.197-1.704.419-1.667" fill="#8f9496"/><path d="m31.702 12.482c-1.277 0-2.476-.642-1.107-3.065 1.365-2.422 1.803-2.961 1.803-3.651-.001 0 4.062 6.716-.696 6.716" fill="#ffce31"/><path d="m31.642 12.482c0 0 .144-1.697.358-1.697.257 0 .38 1.643.38 1.643s-.344.054-.738.054" fill="#3e4347"/></g></symbol><linearGradient gradientUnits="objectBoundingBox" id="lgrd2-peachpuff-sienna-h" spreadMethod="pad" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" style="stop-color:peachpuff;  stop-opacity:1;"/><stop offset="100%" style="stop-color:sienna;  stop-opacity:1"/></linearGradient><linearGradient id="lgrd3-fr-h"><stop offset="0%" stop-color="blue"/><stop offset="50%" stop-color="black" stop-opacity="0"/><stop offset="100%" stop-color="red"/></linearGradient><polygon id="svgEditorShapeDefs" fill="khaki" stroke="black" style="vector-effect: non-scaling-stroke; stroke-width: 1px;"/></defs><rect id="svgEditorBackground" x="0" y="0" width="1317.6400146484375" height="971.0599975585938" style="fill: none; stroke: none;"/>
+    <defs>
+        <style>
+            .acloCls-1 {
+                fill: #4aa8dd;
+            }
+
+            .acloCls-2 {
+                fill: #e2e2e2;
+            }
+
+            .acloCls-3,
+            .acloCls-8 {
+                fill: #445772;
+            }
+
+            .acloCls-4 {
+                fill: #b2b2b2;
+            }
+
+            .acloCls-5,
+            .acloCls-6 {
+                fill: #fff;
+            }
+
+            .acloCls-6,
+            .acloCls-8 {
+                font-size: 40px;
+                font-family: HelvNeue Roman for IBM;
+                weight: 600;
+                letter-spacing: 2px;
+            }
+        </style>
+    </defs>
+    <title>ac lo</title>
+    <rect class="acloCls-1" x="11.349807742850771" y="8.030273432538934" width="1296.16" height="951.7" rx="33.69" ry="33.69"/>
+    <g id="fan">
+        <circle class="acloCls-2" cx="659.43" cy="443.49" r="308.98"/>
+        <circle class="acloCls-3" cx="659.43" cy="443.49" r="275.54"/>
+        <circle class="acloCls-2" cx="659.43" cy="443.49" r="256.82"/>
+        
+        
+        
+        
+    </g>
+    
+    <rect class="acloCls-3" x="467.534" y="841.006" width="337.832" height="60.6967" rx="26.76" ry="26.76" transform="matrix(1 0 0 1 19.1756 -58.8966)" style="" id="e663_rect" fill="lime"/>
+    <text class="acloCls-6" transform="matrix(1 0 0 1 581.176 825.103)" x="" y="">Blinker</text>
+    
+<path d="M4.35,0l-3.725,-3.725c-0.6250000000000002,-0.6250000000000004,-1.875,0.625,-1.2500000000000002,1.25l2.5,2.5l-2.5,2.5c-0.6249999999999999,0.625,0.6250000000000002,1.8750000000000004,1.2500000000000002,1.25l3.725,-3.725ZM0.6250000000000002,0l-3.7250000000000005,-3.725c-0.625,-0.6250000000000004,-1.8749999999999996,0.625,-1.2499999999999996,1.25l2.5,2.5l-2.5,2.5c-0.625,0.625,0.625,1.8750000000000004,1.25,1.25l3.725,-3.725Z" stroke="black" id="e878_shape" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" fill="khaki" transform="matrix(0.154412 0 0 0.154412 82.8793 355.326)"/><path d="M20.675075213902794,-4.832302621632127l-3.725,-3.725c-0.6250000000000013,-0.6250000000000007,-1.875,0.6250000000000002,-1.2500000000000009,1.25l2.500000000000001,2.5l-2.500000000000001,2.5c-0.6249999999999997,0.6250000000000002,0.6250000000000013,1.8750000000000004,1.2500000000000009,1.25l3.725,-3.725ZM16.950075213902778,-4.832302621632127l-3.7250000000000005,-3.725c-0.6250000000000002,-0.6250000000000007,-1.875,0.6250000000000002,-1.25,1.25l2.5,2.5l-2.5,2.5c-0.6250000000000002,0.6250000000000002,0.6250000000000002,1.8750000000000004,1.25,1.25l3.725,-3.725Z" stroke="black" id="e1124_shape" style="vector-effect: non-scaling-stroke; stroke-width: 1px;" fill="khaki" transform="matrix(-20.8423 0.368104 -0.368104 -20.8423 866.716 330.898)"/></svg>
