@@ -78,8 +78,8 @@ function doSocketMessage( message ) {
 }
 
  function wsConnect() {
-            //console.log("connect",wsUri);
-            mysocket = new WebSocket('ws://wownr.mybluemix.net/toCarDashboard');
+            //console.log("connect",wsUri);   //#ADJUST
+            mysocket = new WebSocket('ws:///WoWHoL1264NRTxx.mybluemix.net/toCarDashboard');
             mysocket.onmessage = function(msg) {
                var data = null;
                var shoulditalk=false;
