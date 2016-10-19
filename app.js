@@ -53,13 +53,12 @@ var mqttClient = null;
 var mqttConfig = {
   deviceId : "speech",
   deviceType : "watson",
-  apiToken : "w8n3C&STXc0vanGkWX",
-  orgId : "b27ymc",
+  apiToken : "YOURTOKEN",
+  orgId : "YOURORG",
   port : "1883"
 };
 
- 	   var ws;
-       var wsUri  = "ws://wownr.mybluemix.net/ws/simple";       
+   
       
 app.use ( compression () );
 app.use ( bodyParser.json () );
