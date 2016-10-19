@@ -1,0 +1,456 @@
+// This #include statement was automatically added by the Particle IDE.
+#include "MQTT/MQTT.h"
+
+//
+// --------------------------------------
+// GLADE .. Airfreshner controller PCB version 2010
+// --------------------------------------
+//
+// Author: Markus van Kempen - mvk@ca.ibm.com
+//
+// --------------------------------------
+
+
+int ONBLED = D7; 
+int MOTOR = D6;//D6=Motor need to be HIGH to switch motor on manually.
+int GLADE=D4; // Indicator if system was on.
+String payload = "";
+int valA0 = 0;   
+int valA1 = 0;   
+int valA2 = 0;   
+int valA3 = 0;   
+int valA4 = 0;   
+int valA5 = 0;   
+int motorcnt = 0;   
+int movecnt = 0;
+int buttcnt = 0;
+int tickcnt = 0;
+int manualcnt = 0;
+
+int swcnt = 0;
+int mya1=0,mya2=0,mya3=0,mya4 = 0;
+int valD6 = 0;    
+bool sema = false;
+bool sema1 = false;
+bool motoron = false;
+bool      GLADEBUT=false;
+bool      GLADEMOV=false;
+bool      GLADELED=false;
+bool    GLADELED1ST=false;
+            
+String data,data1,data2,data3,data4,data5,data6;
+char publishString[200];
+char publishString1[200];
+char publishString2[200];
+char publishString3[200];
+char publishStringALL[80];
+unsigned long lastTime = 0UL;
+unsigned long lastTime1 = 0UL;
+unsigned long ledStartTime = 0UL;
+unsigned long ledEndTime = 0UL;
+
+IPAddress localIP = WiFi.localIP();
+String myairstatus = "Off";
+String tmp="";    
+// Having declared these variables, let's move on to the setup function.
+// The setup function is a standard part of any microcontroller program.
+// It runs only once when the device boots up or is reset.
+
+// Bluemix IOTF information 
+//---------------------------------------- ##1 - NEEDS adjustment
+#define ORG "YOURORG"
+#define DEVICE_TYPE "photon"
+#define DEVICE_ID "airfreshener"
+#define TOKEN "YOURTOCKEN"
+//---- Customise the above values --------
+
+
+String TEAM = "TEAM##";
+String DEVICEID = "AFHOL-T###";
+
+
+char server[] = ORG ".messaging.internetofthings.ibmcloud.com";
+char topic[] = "iot-2/evt/status/fmt/json";
+char topicstart[] = "iot-2/evt/bootup/fmt/json";
+char topicled[] = "iot-2/evt/led/fmt/json";
+char topicbutton[] = "iot-2/evt/button/fmt/json";
+char authMethod[] = "use-token-auth";
+char token[] = TOKEN;
+char clientId[] = "d:" ORG ":" DEVICE_TYPE ":" DEVICE_ID;
+
+/**
+ * if want to use IP address,
+ * byte server[] = { XXX,XXX,XXX,XXX };
+ * MQTT client(server, 1883, callback);
+ * want to use domain name,
+ * MQTT client("www.sample.com", 1883, callback);
+ **/
+MQTT client(server, 1883, callback);
+
+
+void setup() {
+    
+    
+  // siwtch off motor
+   pinMode(MOTOR, OUTPUT);
+   digitalWrite(MOTOR, HIGH); // D6=Motor need to be HIGH to switch motor on manually.
+
+  // We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
+  // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
+    Serial.begin(9600);
+  Serial.println("Hello WowHoLTeam GLADEPCBVer2010 ! -ver20160920");
+  Particle.subscribe("spray", myHandler);
+
+  // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
+  Particle.variable("valD6", valD6);
+  Particle.variable("valA0", valA0);
+  
+    pinMode(ONBLED, OUTPUT);
+    
+  //      pinMode(D0, INPUT_PULLDOWN); // sets pin as input
+    pinMode(D0, OUTPUT); // sets pin as input
+    pinMode(D1, OUTPUT); // sets pin as input
+    pinMode(D2, OUTPUT); // sets pin as input
+    pinMode(D3, INPUT_PULLDOWN); // sets pin as input
+    pinMode(D5, INPUT_PULLDOWN); // sets pin as input
+    pinMode(D4, INPUT_PULLDOWN); // GLADE sets pin as input
+    
+  
+   
+   // digitalWrite(GLADE, HIGH); // D4 Indicator if GALDE was Triggered
+
+    delay(6000);
+
+     //
+    // connect to the server
+    // 
+    client.connect(clientId,authMethod, token);
+
+    // publish/subscribe
+    if (client.isConnected()) {
+        digitalWrite(ONBLED, HIGH);
+         Serial.print("IOTF is connected");
+         client.publish(topicstart, "{\"d\":{\"mystatus\":\"start\",\"ts\":"+String(Time.now())+"}}");
+         Serial.print("Subscribed to all cmd");
+         client.subscribe("iot-2/cmd/+/fmt/json");
+  
+    }
+    
+      Particle.function("spray",motorToggle);
+     
+}
+int numWiFiResets =0;
+void ResetWiFiConnection()
+{
+  Serial.println("Beginning WiFi reset #" + String(++numWiFiResets) );
+  WiFi.off();
+  delay(100);
+  WiFi.on();
+  WiFi.connect();
+  Particle.connect();
+  delay(1000);
+}
+//
+// Next we have the loop function, the other essential part of a microcontroller program.
+//
+void loop() {
+  Particle.process();
+  
+ digitalWrite(ONBLED, LOW);
+
+ //   Serial.print("D0 HIGH/SYSTEM ON AND WAIT 5 SEC");
+    
+ if (!client.isConnected()) { 
+  Serial.println("Reconnecting client to ");
+  Serial.println(server);
+  ResetWiFiConnection();
+  while ( client.connect(clientId,authMethod, token)) 
+ {
+ Serial.print(".");
+  delay(1000);
+ }
+ //Serial.println();
+      
+ }else{
+     // Serial.println("Connected to MQTT ");
+     digitalWrite(ONBLED, LOW);
+     client.subscribe("iot-2/cmd/+/fmt/json");
+ }
+ 
+ localIP = WiFi.localIP();
+
+bool success;
+
+ valA0 = analogRead(A0);
+ valA1 = analogRead(A1);
+ valA2 = analogRead(A2);
+ valA3 = analogRead(A3);
+ valA4 = analogRead(A4);
+ valA5 = analogRead(A5);
+    
+    unsigned long now = millis();
+    
+ //delay(100);
+ sprintf(publishString1, "Counters: motor=%d,a1=%d a2=%d a3=%d a4=%d sema=%d mqtt=%d", motorcnt,mya1,mya2,mya3,mya4,sema,client.isConnected()); 
+ sprintf(publishString2, "AnalogRead: TA=%d,A0=%d,A1=%d,A2=%d,A3=%d,A4=%d,A5=%d", Time.now(), valA0,valA1,valA2,valA3,valA4,valA5); 
+ sprintf(publishString3, "DigiRead: TD=%d,D0=%d,D1=%d,D2=%d,D3=%d,D4=%d,D5=%d,D6=%d,D7=%d,",    Time.now(),digitalRead(D0),digitalRead(D1),digitalRead(D2),digitalRead(D3),digitalRead(D4),digitalRead(D5),digitalRead(D6),digitalRead(D7)); 
+
+ sprintf(publishStringALL, "Info TS=%d, A0=%d, D0=%d, D4=%d, D6=%d, motor=%d, move=%d ,button=%d ", Time.now(), valA0,digitalRead(D0),digitalRead(D4),digitalRead(D6),motorcnt,movecnt,buttcnt); 
+
+    //Every 60 seconds publish uptime
+if (now-lastTime>60000UL) {
+        lastTime = now;
+ 
+   sprintf(publishString1, ">>>> Particle publishing : TIME=%d", Time.now());
+    Serial.println(publishString1);  
+   
+success = Particle.publish("alive",now);
+if (!success) {
+  // get here if event publish did not work
+   Serial.println("Some issue with Particle publishing"); 
+   ResetWiFiConnection();
+}
+
+ Particle.publish("afInfo",publishStringALL); 
+ 
+ Particle.publish("analogRead",publishString2); //data1+data2+data3+data4+data5);
+ Particle.publish("digitalRead", publishString3);  //,60);
+   
+}
+// 
+/// MQTT publishing - just every 5 second or so 
+//
+if (now-lastTime1>5000UL) {
+        lastTime1 = now;
+
+   sprintf(publishString1, ">>>> MQTT publishing : TIME=%d", Time.now());
+    Serial.println(publishString1);          
+data =  String((char *)publishString2);
+
+//to IOT - NODE: STRING Length mimitation ... can not add more info to this
+ payload = "{\"d\":{\"myName\":\""+DEVICEID+"\"";
+// payload +=",\"digitalRead\":\"";
+// payload += String((char *)publishString2);
+ payload +=",\"info\":\"";
+ payload += String((char *)publishStringALL);
+ //payload +="\",\"AnalogRead\":\"";
+ //payload += data;
+ payload +="\",\"IP\":\"";
+ payload += ipToString(localIP); //+"";
+ payload +="\"";
+ payload +=",\"motcnt\":";
+ payload += String(motorcnt);
+ 
+ payload +=",\"butcnt\":";
+ payload += String(buttcnt);
+ payload +=",\"movcnt\":";
+ payload += String(movecnt);
+ payload +=",\"mancnt\":";
+ payload += String(manualcnt);
+ 
+ payload +=",\"tick\":";
+ payload += String(tickcnt);
+ 
+ 
+  payload +=",\"led\":";
+   payload += String(GLADELED);
+ 
+ payload +=",\"ts\":";
+ payload += String(Time.now());
+  payload += "}}";
+ 
+ 
+ GLADELED=false;
+ GLADEBUT=false;
+ GLADEMOV=false;
+    
+    if (client.publish(topic, (char*) payload.c_str())) {
+          //   Serial.println("MQT Publishing:"+payload);
+         //    Particle.publish("mqtt",payload); 
+             digitalWrite(ONBLED, HIGH);
+           //   digitalWrite(ONBLED, LOW);       
+            //  ++counter;
+        } else {
+            Serial.println("My MQTT Publish failed!");
+            ResetWiFiConnection();
+          //  Particle.publish("mqtt","My MQTT Publish failed!"); 
+    }
+
+
+    }// mqtt publishing
+    
+ //    Serial.println(publishString2);
+    
+if( (valA0 > 1100 && valA0 < 2000) || (valA0 > 2800 && valA0 < 4000 )){// 4000 valA0 <4094 &&  && valA2 <4094 && valA3 >4094) /// does do something .... D1 
+
+         GLADELED=true;
+         tickcnt++;
+         if (!GLADELED1ST) // movement detected
+         {
+            GLADELED1ST=true;
+            
+            Serial.println(">>>D4 Movement since LED was off");
+            GLADEMOV=true;
+            movecnt++;
+            tickcnt=0;
+            ledStartTime = now;
+            sprintf(publishString1, ">>>> LED: START TIME=%d , TickCnt=%d", Time.now(),tickcnt);
+            Serial.println(publishString1);
+     
+        
+         }
+        
+         client.publish(topicled, "{\"d\":{\"led\":\"on\",\"val\":"+String(valA0)+",\"tick\":"+ String(tickcnt)+ ",\"ts\":"+String(Time.now())+"}}");
+         digitalWrite(D0, HIGH);
+         sprintf(publishString1, ">>>> LED: ON TIME=%d , TickCnt=%d", Time.now(),tickcnt);
+         Serial.println(publishString1);
+         Serial.println(publishStringALL);
+         ledEndTime = now;
+ }else{
+        digitalWrite(D0, LOW);
+        if (now-ledEndTime>30000UL) { //did the led not blink for 10 sec reset status
+             ledEndTime = now;
+             GLADELED1ST=false;
+             GLADELED=false;
+             tickcnt=0;
+             sprintf(publishString1, ">>>> LED: OFF (10+Sec) TIME=%d , TickCnt=%d, ledStartTime=%d ", Time.now(),tickcnt,ledStartTime );
+             client.publish(topicled, "{\"d\":{\"led\":\"off\",\"tick\":"+ String(tickcnt)+ ",\"ts\":"+String(Time.now())+"}}");
+             Serial.println(publishString1);
+             //Serial.println(publishStringALL);
+         }
+           Serial.println(publishStringALL);
+ }
+ 
+ 
+if (digitalRead(GLADE) == 1 && !motoron)
+{
+    if (GLADELED && tickcnt > 5)
+    {
+      Serial.println(">>>D4 Button used / with LED ON ");
+      GLADEBUT=true;
+      buttcnt++;
+      client.publish(topicbutton, "{\"d\":{\"button\":\"on\",\"count\":"+ String(buttcnt)+ ",\"ts\":"+String(Time.now())+"}}");
+    }else{
+        
+       Serial.println(">>> TRIGGERED Manual/Movement or via MQT "); 
+       
+    }
+   
+   
+     Serial.println(">>>D4 Counter MOTOR ON ");
+     digitalWrite(D1, HIGH);
+     motoron=true;
+     tickcnt=6;
+     myairstatus = "On";
+     ledStartTime = now;// not sure if is reset the time if the button is pressed
+}
+
+if (digitalRead(GLADE) == 0 && motoron)
+{
+     Serial.println(">>>D4 Counter MOTOR OFF");
+     digitalWrite(D1, LOW);
+     motoron=false;
+     motorcnt++;
+     myairstatus = "Off";
+    
+}
+
+
+client.loop();
+delay(100);
+
+  // And repeat!
+}
+
+
+void callback( char* topic, byte* payload, unsigned int length ) { 
+ 
+   char p[length + 1];
+    memcpy(p, payload, length);
+    p[length] = NULL;
+    String message(p);
+    Serial.println("<<<<<< Got a MQTT message");
+    Serial.println(message);
+    /*
+    var newPay = {"d":{
+    "action"     : "ON", //ON OFF
+    "appliance"  : "Air-Freshener",
+    "task"       :  "spray",
+    "ts" : now,
+    }};*/
+    
+    int start=message.indexOf("action\":\"")+9;
+    String cmd = message.substring(start, start+2);
+    
+    //int dirstart=message.indexOf("direction\":\"")+12;
+    //String dircmd = message.substring(dirstart, dirstart+4);
+    //Serial.println(cmd);   // cmd ON OFF
+    
+     if (cmd=="ON") {
+              
+            motorToggle("on");
+     }   
+  
+} 
+ 
+// Finally, we will write out our ledToggle function, which is referenced by the Particle.function() called "led"
+
+int motorToggle(String command) {
+
+Serial.println("Got an Event via particle function");
+    if (command=="on") {
+       digitalWrite(MOTOR, LOW);
+       Serial.println("Motor/Spray On");
+        manualcnt++;
+        delay(250);
+       digitalWrite(MOTOR, HIGH);
+        delay(1000);
+    }
+    else if (command=="off") {
+      //  digitalWrite(led,LOW);
+        return 0;
+    }
+    else {
+        return -1;
+    }
+
+}
+
+
+// Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
+void myHandler(const char *event, const char *data)
+{
+  
+  Serial.println("Got an Event via particle subscribe");
+  Serial.println(data); 
+
+  if (strcmp(data,"on")==0) {
+      motorToggle("on");
+     
+  }
+  else if (strcmp(data,"off")==0) {
+    
+  }
+  else {
+    // if the data is something else, don't do anything.
+    
+  }
+}
+
+// t is time in seconds = millis()/1000;
+char * TimeToString(unsigned long t)
+{
+ static char str[12];
+ long h = t / 3600;
+ t = t % 3600;
+ int m = t / 60;
+ int s = t % 60;
+ sprintf(str, "%04ld:%02d:%02d", h, m, s);
+ return str;
+}
+String ipToString(IPAddress ip){
+  String s="";
+  for (int i=0; i<4; i++)
+    s += i  ? "." + String(ip[i]) : String(ip[i]);
+  return s;
+} //- See more at: http://www.esp8266.com/viewtopic.php?p=25466#sthash.TLth8q3R.dpuf
