@@ -23,11 +23,13 @@ var mysocket = null;
  var myled = "off"; 
   var mybuttcnt  = 0; 
   var myName="";
+  var wsUri = 'ws://wowhol1264t06.mybluemix.net/toCarDashboard';  ###ADJUST
 var Api = (function() {
   'use strict';
   var userPayload;
   var watsonPayload;
   var context;
+  
  
   var messageEndpoint = '/api/message';
 
@@ -78,8 +80,8 @@ function doSocketMessage( message ) {
 }
 
  function wsConnect() {
-            //console.log("connect",wsUri);   //#ADJUST
-            mysocket = new WebSocket('ws:///WoWHoL1264NRTxx.mybluemix.net/toCarDashboard');
+            console.log("connect to "+wsUri);
+            mysocket = new WebSocket(wsUri);
             mysocket.onmessage = function(msg) {
                var data = null;
                var shoulditalk=false;
@@ -168,7 +170,7 @@ document.write('+ seconds +');
             }//message
             mysocket.onopen = function() {
 
-                console.log("connected to ws://wownr.mybluemix.net/toCarDashboard");
+                console.log("connected to "+wsUri );
             }
 			mysocket.onclose = function() {
                 setTimeout(wsConnect,3000);
