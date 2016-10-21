@@ -23,7 +23,7 @@ var mysocket = null;
  var myled = "off"; 
   var mybuttcnt  = 0; 
   var myName="";
-  var wsUri = 'ws://wowhol1264t06.mybluemix.net/toCarDashboard';  ###ADJUST
+  var wsUri = 'ws://wowhol1264t06ab.mybluemix.net/toCarDashboard';  //###ADJUST change the host name
 var Api = (function() {
   'use strict';
   var userPayload;
